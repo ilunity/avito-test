@@ -9,7 +9,6 @@ export const advertisementsLoader: LoaderFunction = async ({
   const url = new URL(request.url);
   const params = url.searchParams;
 
-  // todo перенести имена параметров в константы
   const isPaginationParamsEmpty = !params.get('_start') || !params.get('_limit');
   if (isPaginationParamsEmpty) {
     params.set('_start', '0');
@@ -17,11 +16,7 @@ export const advertisementsLoader: LoaderFunction = async ({
   }
 
   const advertisementsCount = await advertisementsService.getCount();
-  const { error, data } = await executeRequest(() => advertisementsService.get(params));
-
-  if (error) {
-    //todo error
-  }
+  const { data } = await executeRequest(() => advertisementsService.get(params));
 
   return {
     advertisementsCount,
