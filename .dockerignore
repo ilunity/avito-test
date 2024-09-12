@@ -1,0 +1,9 @@
+Dockerfile
+.dockerignore
+.gitignore
+node_modules
+npm-debug.log
+README.md
+frontend-trainee-assignment-autumn-2024.md
+.git
+.env.local
